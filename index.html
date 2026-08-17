@@ -96,9 +96,23 @@
   .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 
+  /* ===== Announcement bar ===== */
+  .announce-bar{
+    background:var(--red);
+    color:var(--paper);
+    text-align:center;
+    font-family:'Space Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.03em;
+    padding:9px 16px;
+  }
+  .announce-bar strong{color:var(--ink);}
+
   /* ===== Sticky bar ===== */
-  .topbar{
+  .sticky-head{
     position:sticky; top:0; z-index:50;
+  }
+  .topbar{
     background:rgba(28,23,18,0.96);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line-light);
@@ -127,7 +141,7 @@
   }
   .hero::before{
     content:"";
-    position:absolute; inset:0;
+    position:absolute; top:0; left:0; right:0; bottom:0;
     background-image:
       radial-gradient(circle at 15% 20%, rgba(240,164,48,0.10), transparent 40%),
       radial-gradient(circle at 85% 75%, rgba(225,64,43,0.16), transparent 45%);
@@ -216,6 +230,141 @@
     letter-spacing:0.14em;
     transform:rotate(-2deg);
   }
+
+  /* ===== Book mockup ===== */
+  .hero-visual{
+    position:relative;
+    padding:20px 0 40px;
+  }
+  .book-3d{
+    position:relative;
+    width:280px;
+    height:373px;
+    margin:0 auto;
+    transform:rotate(-4deg);
+    transition:transform .4s ease;
+  }
+  .hero-visual:hover .book-3d{ transform:rotate(-1.5deg); }
+  .book-cover{
+    position:absolute; top:0; left:0; right:0; bottom:0;
+    background:linear-gradient(155deg, #f0a430 0%, #e1402b 42%, #a8281a 100%);
+    border-radius:3px 10px 10px 3px;
+    box-shadow:
+      10px 24px 50px rgba(0,0,0,0.55),
+      inset -3px 0 6px rgba(0,0,0,0.35);
+    padding:26px 22px;
+    display:flex;
+    flex-direction:column;
+    color:var(--paper);
+    overflow:hidden;
+  }
+  .book-cover::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; bottom:0;
+    background:radial-gradient(circle at 22% 12%, rgba(255,224,168,0.55), transparent 55%);
+  }
+  .book-cover::after{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0; width:10px;
+    background:linear-gradient(90deg, rgba(0,0,0,0.35), transparent);
+  }
+  .book-badge{
+    position:relative;
+    align-self:flex-start;
+    background:var(--ink);
+    color:var(--amber);
+    font-family:'Space Mono', monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    padding:5px 11px;
+    border-radius:20px;
+    text-transform:uppercase;
+  }
+  .book-title{
+    position:relative;
+    font-family:'Anton', sans-serif;
+    font-size:27px;
+    line-height:1.02;
+    margin-top:18px;
+    text-transform:uppercase;
+    color:#fff;
+    text-shadow:0 2px 10px rgba(0,0,0,0.25);
+  }
+  .book-title span{color:var(--ink);}
+  .book-sub{
+    position:relative;
+    font-family:'Space Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.06em;
+    color:rgba(28,23,18,0.75);
+    font-weight:700;
+    margin-top:10px;
+  }
+  .book-author{
+    position:relative;
+    margin-top:auto;
+    padding-top:16px;
+    border-top:1px solid rgba(28,23,18,0.25);
+    font-family:'Manrope', sans-serif;
+    font-size:11.5px;
+    font-weight:700;
+    color:rgba(255,255,255,0.92);
+  }
+  .book-shadow{
+    position:absolute;
+    left:8%; right:8%; bottom:-18px;
+    height:26px;
+    background:radial-gradient(ellipse at center, rgba(0,0,0,0.5), transparent 70%);
+    filter:blur(4px);
+    z-index:-1;
+  }
+  .book-badge-float{
+    position:absolute;
+    bottom:-26px; left:-18px;
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:10px;
+    padding:12px 16px;
+    box-shadow:0 14px 30px rgba(0,0,0,0.4);
+    transform:rotate(-4deg);
+    font-family:'Space Mono', monospace;
+    text-align:center;
+    z-index:2;
+  }
+  .book-badge-float .bf-was{font-size:10px; color:#9a8f7f; text-decoration:line-through;}
+  .book-badge-float .bf-now{font-size:20px; font-weight:700; color:var(--red);}
+  @media (max-width:860px){
+    .book-3d{ transform:rotate(-3deg); width:220px; height:293px; }
+  }
+
+  /* ===== Author section ===== */
+  .author-card{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    background:var(--paper2);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:32px;
+    max-width:700px;
+  }
+  .author-avatar{
+    width:76px; height:76px; min-width:76px;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--amber);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Anton', sans-serif;
+    font-size:26px;
+    letter-spacing:0.02em;
+  }
+  .author-name{
+    font-family:'Manrope', sans-serif;
+    font-weight:800;
+    font-size:18px;
+    margin-bottom:6px;
+  }
+  .author-bio{font-size:14.5px; color:rgba(28,23,18,0.7); line-height:1.55;}
 
   /* ===== Sections generic ===== */
   section{padding:84px 0;}
@@ -363,7 +512,7 @@
   }
   .pricing::before{
     content:"";
-    position:absolute; inset:0;
+    position:absolute; top:0; left:0; right:0; bottom:0;
     background:radial-gradient(circle at 50% 0%, rgba(225,64,43,0.18), transparent 55%);
     pointer-events:none;
   }
@@ -510,7 +659,7 @@
   .whatsapp-float svg{width:26px; height:26px; flex:none;}
   .whatsapp-float .wa-pulse{
     position:absolute;
-    inset:0;
+    top:0; left:0; right:0; bottom:0;
     border-radius:50px;
     background:#25D366;
     opacity:0.55;
@@ -535,7 +684,7 @@
     .hero-grid{grid-template-columns:1fr; text-align:center;}
     .hero p.lead{margin-left:auto; margin-right:auto;}
     .hero-ctas{justify-content:center;}
-    .receipt{margin-top:20px;}
+    .hero-visual{margin-top:20px;}
     .pain-grid{grid-template-columns:repeat(2,1fr);}
     .stats-grid{grid-template-columns:repeat(2,1fr); gap:30px;}
     .pricing-grid{grid-template-columns:1fr;}
@@ -543,6 +692,7 @@
     .for-grid{grid-template-columns:1fr;}
     .menu-item{grid-template-columns:40px 1fr; }
     .menu-item .m-tag{grid-column:2; margin-top:6px;}
+    .author-card{flex-direction:column; text-align:center; padding:28px 24px;}
   }
   @media (max-width:520px){
     .pain-grid{grid-template-columns:1fr;}
@@ -557,10 +707,13 @@
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="brand"><span class="dot"></span> RESTAURANTE DELIVERY DE CASA</div>
-    <a href="https://pay.kiwify.com.br/nuAKQak" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Quero o e-book</a>
+<div class="sticky-head">
+  <div class="announce-bar">🔥 <strong>OFERTA DE LANÇAMENTO:</strong> de R$ 197,00 por R$ 29,90 — 85% OFF por tempo limitado</div>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="dot"></span> RESTAURANTE DELIVERY DE CASA</div>
+      <a href="https://pay.kiwify.com.br/nuAKQak" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Quero o e-book</a>
+    </div>
   </div>
 </div>
 
@@ -577,15 +730,20 @@
       <div class="hero-trust">✓ Formato digital (PDF) · ✓ Acesso imediato · ✓ Linguagem simples, sem enrolação</div>
     </div>
 
-    <div class="receipt reveal">
-      <div class="r-title">Pedido Confirmado</div>
-      <div class="r-sub">restaurante delivery de casa</div>
-      <div class="r-line"><span>Medo de começar</span><span>saiu</span></div>
-      <div class="r-line"><span>Burocracia</span><span>resolvida</span></div>
-      <div class="r-line"><span>Cardápio confuso</span><span>organizado</span></div>
-      <div class="r-line"><span>App de delivery</span><span>cadastrado</span></div>
-      <div class="r-total"><span>Total</span><span>1 negócio próprio</span></div>
-      <div class="r-stamp">★ PLANEJAMENTO CONCLUÍDO ★</div>
+    <div class="hero-visual">
+      <div class="book-3d">
+        <div class="book-cover">
+          <span class="book-badge">E-book digital</span>
+          <div class="book-title">Restaurante <span>Delivery</span> Dentro de Casa</div>
+          <div class="book-sub">MESMO SENDO UM COMPLETO INICIANTE</div>
+          <div class="book-author">Luan Victor</div>
+        </div>
+        <div class="book-shadow"></div>
+        <div class="book-badge-float">
+          <div class="bf-was">R$ 197,00</div>
+          <div class="bf-now">R$ 29,90</div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -705,6 +863,21 @@
       <div class="for-item"><span class="check">✓</span><p>Você tem pouco capital disponível e não pode arriscar em ponto comercial e reforma.</p></div>
       <div class="for-item"><span class="check">✓</span><p>Você já vende para amigos e família e quer profissionalizar o negócio.</p></div>
       <div class="for-item"><span class="check">✓</span><p>Você quer entender antes de investir — sem depender de achismo ou tentativa e erro.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE O AUTOR -->
+<section class="section-alt">
+  <div class="wrap">
+    <span class="kicker reveal">Quem escreveu</span>
+    <h2 class="section-title reveal">Sobre o autor</h2>
+    <div class="author-card reveal">
+      <div class="author-avatar">LV</div>
+      <div>
+        <div class="author-name">Luan Victor</div>
+        <p class="author-bio">Empreendedor brasileiro dedicado a ajudar outras pessoas a entrarem no mercado de alimentação sem precisar de grandes investimentos. Este e-book reúne o passo a passo prático para quem quer começar um restaurante delivery com o que já tem em casa.</p>
+      </div>
     </div>
   </div>
 </section>
